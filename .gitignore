@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+.env*.local
+
+# Originaux non optimisés (~110 Mo) : on versionne uniquement les versions WebP
+# servies par le site (public/photos) et le manifeste src/data/photos.generated.json.
+images

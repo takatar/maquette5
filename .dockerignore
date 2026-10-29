@@ -1,0 +1,16 @@
+# Contexte de build minimal : seuls les sources nécessaires à `next build`.
+node_modules
+.next
+out
+.git
+.gitignore
+.dockerignore
+
+# Originaux non optimisés (~110 Mo). Les versions WebP servies par le site sont
+# versionnées dans public/photos, donc le build n'en a pas besoin.
+images
+
+npm-debug.log*
+*.tsbuildinfo
+next-env.d.ts
+README.md

@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-paper: #f7f6f2;
+  --color-ink: #151515;
+  --color-mond-red: #d92727;
+  --color-mond-blue: #1746a2;
+  --color-mond-yellow: #f2c230;
+  --color-mist: #e7e5df;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-display: var(--font-dm-serif), "Playfair Display", Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-mond-blue);
+    outline-offset: 3px;
+  }
+
+  .on-dark :focus-visible,
+  footer :focus-visible {
+    outline-color: var(--color-mond-yellow);
+  }
+
+  ::selection {
+    background: var(--color-mond-yellow);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .wrap {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Hauteur du hero sur grand écran : plein écran, mais plafonnée pour éviter l'étirement des photos. */
+  @media (min-width: 1024px) {
+    .hero-min {
+      min-height: min(calc(100svh - 4.5rem), 50rem);
+    }
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 100;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise-in {
+  animation: rise-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.rise-in-delay-1 {
+  animation-delay: 0.12s;
+}
+.rise-in-delay-2 {
+  animation-delay: 0.24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

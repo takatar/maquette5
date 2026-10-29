@@ -1,0 +1,28 @@
+{
+  "name": "le-mondrian",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site vitrine de la résidence hôtelière Le Mondrian, Saly Portudal (Sénégal).",
+  "scripts": {
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "predev": "node scripts/optimize-images.mjs",
+    "dev": "next dev",
+    "prebuild": "node scripts/optimize-images.mjs",
+    "build": "next build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^16.4.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2"
+  }
+}
